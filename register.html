@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ReWear</title>
+    <link rel="stylesheet" href="../auth.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">ReWear</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <!-- <li><a href="../items/browse.html">Browse</a></li> -->
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html" class="btn active">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create Your Account</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" minlength="8" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <button type="submit" class="btn primary">Register</button>
+            </form>
+            <p class="auth-link">Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ReWear. Promoting sustainable fashion.</p>
+        </div>
+    </footer>
+
+    <script src="../form-validation.js"></script>
+    <script>
+        document.getElementById('register-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Simulate successful registration
+            alert('Registration successful! Redirecting to dashboard...');
+            window.location.href = "../dashboard.html";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - ReWear</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Admin Panel Styles */
+.admin-panel {
+    padding: 40px 0;
+}
+
+.admin-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--dark-gray);
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+.tab-btn.active {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.admin-items-list {
+    margin-top: 20px;
+}
+
+.admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.item-preview {
+    display: flex;
+    align-items: center;
+}
+
+.item-preview img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn.error {
+    background-color: var(--error);
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.users-table th, .users-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--dark-gray);
+}
+
+.users-table th {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status.active {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.status.banned {
+    background-color: #FFEBEE;
+    color: var(--error);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">ReWear</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../items/browse.html">Browse</a></li>
+                    <li><a href="../dashboard.html">Dashboard</a></li>
+                    <li><a href="panel.html" class="active">Admin</a></li>
+                    <li><a href="#" class="btn" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-panel">
+        <div class="container">
+            <h2>Admin Panel</h2>
+            
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="pending">Pending Approvals</button>
+                <button class="tab-btn" data-tab="reported">Reported Items</button>
+                <button class="tab-btn" data-tab="users">User Management</button>
+            </div>
+            
+            <div class="tab-content active" id="pending">
+                <h3>Items Pending Approval</h3>
+                <div class="admin-items-list">
+                    <div class="admin-item">
+                        <div class="item-preview">
+                            <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Item">
+                            <div class="item-info">
+                                <h4>Designer Handbag</h4>
+                                <p>Listed by: user123</p>
+                                <p>Points: 80</p>
+                            </div>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn small primary">Approve</button>
+                            <button class="btn small secondary">Reject</button>
+                            <button class="btn small">View Details</button>
+                        </div>
+                    </div>
+                    <div class="admin-item">
+                        <div class="item-preview">
+                            <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Item">
+                            <div class="item-info">
+                                <h4>Leather Jacket</h4>
+                                <p>Listed by: fashionlover</p>
+                                <p>Points: 60</p>
+                            </div>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn small primary">Approve</button>
+                            <button class="btn small secondary">Reject</button>
+                            <button class="btn small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="reported">
+                <h3>Reported Items</h3>
+                <div class="admin-items-list">
+                    <div class="admin-item">
+                        <div class="item-preview">
+                            <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Item">
+                            <div class="item-info">
+                                <h4>Summer Dress</h4>
+                                <p>Reported by: 3 users</p>
+                                <p>Reason: Wrong description</p>
+                            </div>
+                        </div>
+                        <div class="admin-actions">
+                            <button class="btn small primary">Keep</button>
+                            <button class="btn small error">Remove</button>
+                            <button class="btn small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="users">
+                <h3>User Management</h3>
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Joined</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>user123</td>
+                            <td>user123@example.com</td>
+                            <td>2023-06-15</td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                                <button class="btn small">View</button>
+                                <button class="btn small secondary">Warn</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>spammer</td>
+                            <td>spammer@example.com</td>
+                            <td>2023-07-01</td>
+                            <td><span class="status banned">Banned</span></td>
+                            <td>
+                                <button class="btn small">View</button>
+                                <button class="btn small primary">Unban</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ReWear. Promoting sustainable fashion.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            if(confirm('Are you sure you want to logout?')) {
+                window.location.href = "../index.html";
+            }
+        });
+
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Admin actions
+        document.querySelectorAll('.admin-actions .btn.primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Item approved successfully!');
+                this.closest('.admin-item').remove();
+            });
+        });
+
+        document.querySelectorAll('.admin-actions .btn.secondary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(confirm('Are you sure you want to reject this item?')) {
+                    alert('Item rejected and removed.');
+                    this.closest('.admin-item').remove();
+                }
+            });
+        });
+
+        document.querySelectorAll('.admin-actions .btn.error').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(confirm('Are you sure you want to remove this reported item?')) {
+                    alert('Item removed from the platform.');
+                    this.closest('.admin-item').remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

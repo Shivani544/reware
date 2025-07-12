@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Details - ReWear</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">ReWear</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="">Browse</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="#" class="btn" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="item-detail">
+        <div class="container">
+            <div class="item-gallery">
+    <div class="main-image">
+        <img id="main-display" src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Main view">
+    </div>
+    <div class="thumbnail-images">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Front view" onclick="changeMainImage(this.src)">
+        <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Back view" onclick="changeMainImage(this.src)">
+    </div>
+</div>
+            </div>
+
+            <div class="item-info">
+                <h2>Vintage Denim Jacket</h2>
+                <p class="price">50 points</p>
+                <div class="uploader-info">
+                    <img src="https://via.placeholder.com/50" alt="Uploader">
+                    <p>Listed by <strong>Sarah K.</strong></p>
+                </div>
+                <div class="item-meta">
+                    <p><strong>Size:</strong> M</p>
+                    <p><strong>Condition:</strong> Excellent</p>
+                    <p><strong>Category:</strong> Jackets</p>
+                    <p><strong>Brand:</strong> Levi's</p>
+                </div>
+                <div class="item-description">
+                    <h3>Description</h3>
+                    <p>This vintage denim jacket is in excellent condition with minimal wear. Perfect for layering in spring or fall. All buttons intact and functional. Light wash with subtle fading for that authentic vintage look.</p>
+                </div>
+                <div class="item-actions">
+                    <button class="btn primary">Request Swap</button>
+                    <button class="btn secondary">Redeem with Points</button>
+                </div>
+                <p class="availability">Available for swap</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ReWear. Promoting sustainable fashion.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            if(confirm('Are you sure you want to logout?')) {
+                window.location.href = "./index.html";
+            }
+        });
+
+        // Thumbnail image click handler
+        const thumbnails = document.querySelectorAll('.thumbnail-images img');
+        const mainImage = document.querySelector('.main-image img');
+        
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                mainImage.src = this.src.replace('100x120', '500x600');
+            });
+        });
+
+        // Swap/redeem buttons
+        document.querySelector('.btn.primary').addEventListener('click', function() {
+            alert('Swap request sent to the owner!');
+        });
+
+        document.querySelector('.btn.secondary').addEventListener('click', function() {
+            if(confirm('Redeem this item for 50 points?')) {
+                alert('Item redeemed successfully!');
+                window.location.href = "./dashboard.html";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Denim Jacket - ReWear</title>
+    <style>
+        /* Basic styling for the item detail page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .item-detail {
+            display: flex;
+            margin-top: 30px;
+            gap: 30px;
+        }
+        
+        .item-gallery {
+            flex: 1;
+        }
+        
+        .main-image {
+            margin-bottom: 15px;
+        }
+        
+        .main-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .thumbnail-images img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail-images img:hover, 
+        .thumbnail-images img.active {
+            border-color: #4CAF50;
+        }
+        
+        .item-info {
+            flex: 1;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .item-info h1 {
+            margin-top: 0;
+            color: #2E7D32;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 15px 0;
+        }
+        
+        .uploader-info {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .uploader-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        
+        .item-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .item-meta p {
+            margin: 5px 0;
+        }
+        
+        .item-actions {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #8BC34A;
+            color: white;
+        }
+        
+        .availability {
+            font-style: italic;
+            color: #4CAF50;
+        }
+        
+        footer {
+            background-color: #2E7D32;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">ReWear</div>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="item-detail">
+            <div class="item-gallery">
+                <div class="main-image">
+                    <img id="main-display" src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Vintage Denim Jacket">
+                </div>
+                <div class="thumbnail-images">
+                    <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Front view" 
+                         onclick="changeMainImage(this.src)" class="active">
+                    <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Back view"
+                         onclick="changeMainImage(this.src)">
+                    <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Detail view"
+                         onclick="changeMainImage(this.src)">
+                </div>
+            </div>
+
+            <div class="item-info">
+                <h1>Vintage Denim Jacket</h1>
+                <p class="price">50 points</p>
+                
+                <div class="uploader-info">
+                    <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Sarah K.">
+                    <p>Listed by <strong>Sarah K.</strong></p>
+                </div>
+                
+                <div class="item-meta">
+                    <p><strong>Size:</strong> M</p>
+                    <p><strong>Condition:</strong> Excellent</p>
+                    <p><strong>Category:</strong> Jackets</p>
+                    <p><strong>Brand:</strong> Levi's</p>
+                    <p><strong>Color:</strong> Light Blue</p>
+                    <p><strong>Material:</strong> 100% Cotton</p>
+                </div>
+                
+                <div class="item-description">
+                    <h3>Description</h3>
+                    <p>This vintage denim jacket from the 90s is in excellent condition with minimal wear. Perfect for layering in spring or fall. Features:</p>
+                    <ul>
+                        <li>Classic trucker jacket style</li>
+                        <li>All buttons intact and functional</li>
+                        <li>Light wash with subtle fading</li>
+                        <li>Two front pockets and chest pocket</li>
+                        <li>Minor wear on cuffs (shown in photos)</li>
+                    </ul>
+                </div>
+                
+                <div class="item-actions">
+                    <button class="btn btn-primary">Request Swap</button>
+                    <button class="btn btn-secondary">Redeem with Points</button>
+                </div>
+                
+                <p class="availability">Available for swap</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ReWear. Promoting sustainable fashion.</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeMainImage(src) {
+            // Update main image
+            document.getElementById('main-display').src = src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail-images img');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+                if (thumb.src === src) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+        
+        // Swap button functionality
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            alert('Swap request sent to Sarah! She will respond within 48 hours.');
+        });
+        
+        // Redeem button functionality
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            if (confirm('Redeem this item for 50 points?')) {
+                alert('Item redeemed successfully! We will contact you for shipping details.');
+            }
+        });
+    </script>
+</body>
+</html>

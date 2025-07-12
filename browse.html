@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - ReWear</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">ReWear</h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="browse.html" class="active">Browse</a></li>
+                    <li><a href="./dashboard.html">Dashboard</a></li>
+                    <li><a href="#" class="btn" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="browse-items">
+        <div class="container">
+            <div class="search-filter">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for items...">
+                    <button class="btn primary">Search</button>
+                </div>
+                <div class="filters">
+                    <select>
+                        <option value="">All Categories</option>
+                        <option value="tops">Tops</option>
+                        <option value="bottoms">Bottoms</option>
+                        <option value="dresses">Dresses</option>
+                        <option value="outerwear">Outerwear</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="shoes">Shoes</option>
+                    </select>
+                    <select>
+                        <option value="">All Sizes</option>
+                        <option value="xs">XS</option>
+                        <option value="s">S</option>
+                        <option value="m">M</option>
+                        <option value="l">L</option>
+                        <option value="xl">XL</option>
+                    </select>
+                    <select>
+                        <option value="">Any Condition</option>
+                        <option value="new">New with tags</option>
+                        <option value="excellent">Excellent</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                        <option value="poor">Poor</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="items-grid">
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9" alt="Denim Jacket">
+                    <h3>Vintage Denim Jacket</h3>
+                    <p class="price">50 points</p>
+                    <p class="uploader">Listed by Sarah K.</p>
+                </div>
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633" alt="Floral Dress">
+                    <h3>Floral Summer Dress</h3>
+                    <p class="price">30 points</p>
+                    <p class="uploader">Listed by Mike T.</p>
+                </div>
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Leather Bag">
+                    <h3>Genuine Leather Bag</h3>
+                    <p class="price">70 points</p>
+                    <p class="uploader">Listed by Emma S.</p>
+                </div>
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f" alt="White Sneakers">
+                    <h3>White Canvas Sneakers</h3>
+                    <p class="price">40 points</p>
+                    <p class="uploader">Listed by David L.</p>
+                </div>
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1565084888279-aca607ecce0c" alt="Wool Scarf">
+                    <h3>Wool Winter Scarf</h3>
+                    <p class="price">25 points</p>
+                    <p class="uploader">Listed by Anna B.</p>
+                </div>
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80" alt="Silk Blouse">
+                    <h3>Silk Evening Blouse</h3>
+                    <p class="price">45 points</p>
+                    <p class="uploader">Listed by James P.</p>
+                </div>
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea" alt="Floral Dress">
+                    <h3>Floral Summer Dress</h3>
+                    <p class="price">30 points</p>
+                    <p class="uploader">Listed by Mike T.</p>
+                </div>
+                <div class="item-card" onclick="window.location.href='detail.html'">
+                    <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246" alt="Silk Blouse">
+                    <h3>Silk Evening Blouse</h3>
+                    <p class="price">45 points</p>
+                    <p class="uploader">Listed by James P.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 ReWear. Promoting sustainable fashion.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', function() {
+            if(confirm('Are you sure you want to logout?')) {
+                window.location.href = "./index.html";
+            }
+        });
+    </script>
+</body>
+</html>
